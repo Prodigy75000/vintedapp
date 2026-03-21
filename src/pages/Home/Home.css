@@ -1,5 +1,7 @@
 .owner-profile {
   display: flex;
+  padding : 4px;
+  gap: 8px;
 }
 
 .owner-profile img {
@@ -20,6 +22,7 @@
   width: 100%;
   height: 360px;
   object-fit: cover;
+  border-radius: 4px;
 }
 
 .home section {

@@ -4,7 +4,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import "./Signup.css";
 
-export default function Signup() {
+export default function Signup({ setIsConnected }) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -31,7 +31,8 @@ export default function Signup() {
         },
       );
 
-      Cookies.set("token", response.data.token, { expires: 7 });
+      Cookies.set("userToken", response.data.token, { expires: 7 });
+      setIsConnected(true);
       navigate("/");
     } catch (error) {
       if (error.response?.data?.message) {

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ title }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -11,7 +11,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers",
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${title}`,
         );
         // console.log(response.data); // {count: 32, offers: Array(32)}
         setData(response.data);
@@ -21,7 +21,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [title]);
 
   return (
     <main className="home">
@@ -31,7 +31,7 @@ const Home = () => {
         ) : (
           <section>
             {data.offers.map((element) => {
-              console.log(element);
+              // console.log(element);
               // {
               //     "_id": "69b178197659fbfd4f9ebe26",
               //     "product_name": "Vestido",
@@ -70,22 +70,23 @@ const Home = () => {
                 <Link to={"/offers/" + element._id}>
                   <article key={element._id}>
                     <div className="owner-profile">
-                      <img
-                        src={element.owner.account.avatar.secure_url}
-                        alt="portrait de l'ouner"
-                      />
-                      <p>{element.owner.account.username}</p>
+                      {element.owner?.account?.avatar?.secure_url && (
+                        <img
+                          src={element.owner.account.avatar.secure_url}
+                          alt="portrait de l'ouner"
+                        />
+                      )}
+                      <p>{element.owner?.account?.username}</p>
                     </div>
-                    <img
-                      src={element.product_image.secure_url}
-                      alt="aperçu de l'offre"
-                    />
+                    {element.product_image?.secure_url && (
+                      <img
+                        src={element.product_image.secure_url}
+                        alt="aperçu de l'offre"
+                      />
+                    )}
                     <p>{element.product_price} €</p>
-                    <p>{element.product_details[0].MARQUE}</p>
-                    <p>
-                      {element.product_details[1].TAILLE &&
-                        element.product_details[1].TAILLE}
-                    </p>
+                    <p>{element.product_details?.[0]?.MARQUE}</p>
+                    <p>{element.product_details?.[1]?.TAILLE}</p>
                   </article>
                 </Link>
               );

@@ -22,6 +22,7 @@ const Offer = () => {
         setIsLoading(false);
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       }
     };
     fetchData();
@@ -33,10 +34,12 @@ const Offer = () => {
           <p>Loading...</p>
         ) : (
           <section>
-            <img
-              src={data.product_image.secure_url}
-              alt="grand aperçu de l'offre"
-            />
+            {data.product_image?.secure_url && (
+              <img
+                src={data.product_image.secure_url}
+                alt="grand aperçu de l'offre"
+              />
+            )}
             <aside>
               <p>{data.product_price} €</p>
               <button>Acheter</button>
