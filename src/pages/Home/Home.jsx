@@ -15,7 +15,7 @@ const Home = ({ title }) => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `http://localhost:3000/offers?title=${title}&page=${page}`,
+          `${import.meta.env.VITE_API_URL}/offers?title=${title}&page=${page}`,
         );
         setData(response.data);
         setIsLoading(false);

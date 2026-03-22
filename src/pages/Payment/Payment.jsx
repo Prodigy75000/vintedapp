@@ -45,7 +45,7 @@ const CheckoutForm = ({ id, title, amount }) => {
       );
 
       // Mark offer as sold
-      await axios.put("http://localhost:3000/offers/" + id + "/sold");
+      await axios.put(import.meta.env.VITE_API_URL + "/offers/" + id + "/sold");
 
       setCompleted(true);
     } catch (error) {

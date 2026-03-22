@@ -25,7 +25,7 @@ export default function Signup({ setIsConnected }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/signup",
+        import.meta.env.VITE_API_URL + "/user/signup",
         {
           username: formData.username,
           email: formData.email,

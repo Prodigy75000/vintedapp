@@ -61,7 +61,7 @@ const Publish = ({ isConnected }) => {
       const token = Cookies.get("userToken");
 
       const response = await axios.post(
-        "http://localhost:3000/offer/publish",
+        import.meta.env.VITE_API_URL + "/offer/publish",
         formData,
         {
           headers: {

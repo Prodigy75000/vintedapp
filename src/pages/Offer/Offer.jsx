@@ -16,7 +16,7 @@ const Offer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/offers/" + id,
+          import.meta.env.VITE_API_URL + "/offers/" + id,
         );
         console.log(response.data);
         setData(response.data);
