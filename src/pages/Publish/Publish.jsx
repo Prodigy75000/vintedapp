@@ -31,8 +31,8 @@ const Publish = ({ isConnected }) => {
     e.preventDefault();
     setErrorMessage("");
 
-    if (!productName || !productPrice) {
-      setErrorMessage("Le nom et le prix sont obligatoires");
+    if (!productName || !productDescription || !productPrice || !marque || !taille || !etat || !couleur || !emplacement) {
+      setErrorMessage("Tous les champs sont obligatoires");
       return;
     }
 

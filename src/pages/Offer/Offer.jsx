@@ -1,6 +1,6 @@
-// Offer detail page — fetches a single offer by ID from URL params
-// Displays product image, price, details, and owner info
-// "Acheter" button navigates to /payment with the offer data
+// Offer detail page, fetches a single offer by id from URL params
+// Displays product image, price, details, and owner information
+// "Acheter" button navigates to /payment (striped) with the offer data
 import "./Offer.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";

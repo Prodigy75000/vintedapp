@@ -1,5 +1,5 @@
-// Payment page — shows order summary (price + fees) and Stripe card form
-// On successful payment, marks the offer as sold in the back-end
+// Payment page, shows order summary (price + fees) and Stripe card form
+// whhen the payement is successful, marks the offer as sold in the back-end and hides it from the search results
 // Receives offer id, title, and amount via React Router location state
 
 import { useState } from "react";
@@ -9,8 +9,11 @@ import { Elements, CardElement, useStripe, useElements } from "@stripe/react-str
 import axios from "axios";
 import "./Payment.css";
 
+// getting the stripe public api key from frontend .env
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
+
+// stripe form to complete the payement 
 const CheckoutForm = ({ id, title, amount }) => {
   const stripe = useStripe();
   const elements = useElements();
