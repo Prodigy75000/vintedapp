@@ -1,3 +1,6 @@
+// Signup page — creates a new account with username, email, password
+// On success, stores the token in a cookie (7-day expiry) and redirects to home
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";

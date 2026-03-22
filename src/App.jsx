@@ -1,3 +1,5 @@
+// Main app component — manages auth state (token in cookies) and all routes
+// handleToken centralizes login/logout by setting or removing the cookie
 import "./App.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -7,6 +9,7 @@ import Header from "./components/Header/Header";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Publish from "./pages/Publish/Publish";
+import Payment from "./pages/Payment/Payment";
 import Cookies from "js-cookie";
 
 function App() {
@@ -70,6 +73,7 @@ function App() {
           path="/publish"
           element={<Publish isConnected={isConnected} />}
         />
+        <Route path="/payment" element={<Payment />} />
         <Route
           path="*"
           element={

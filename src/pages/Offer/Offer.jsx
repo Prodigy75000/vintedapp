@@ -1,5 +1,8 @@
+// Offer detail page — fetches a single offer by ID from URL params
+// Displays product image, price, details, and owner info
+// "Acheter" button navigates to /payment with the offer data
 import "./Offer.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -7,6 +10,7 @@ const Offer = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,7 +60,20 @@ const Offer = () => {
                 <p>{data.owner?.account?.username}</p>
               </div>
             
-              <button className="buy-btn">Acheter</button></div>
+              <button
+                className="buy-btn"
+                onClick={() =>
+                  navigate("/payment", {
+                    state: {
+                      id: data._id,
+                      title: data.product_name,
+                      amount: data.product_price,
+                    },
+                  })
+                }
+              >
+                Acheter
+              </button></div>
              
             </aside>
           </section>

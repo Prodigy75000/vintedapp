@@ -1,3 +1,6 @@
+// Header — displays logo, search bar, auth buttons, and "Vends tes articles"
+// Shows logout button when connected, signup/login links otherwise
+// "Vends tes articles" redirects to /publish if logged in, /login if not
 import "./Header.css";
 import logo from "../../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";

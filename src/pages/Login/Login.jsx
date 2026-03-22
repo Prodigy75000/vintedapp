@@ -1,3 +1,5 @@
+// Login page — sends email + password to the API
+// On success, stores the token in a cookie and redirects to home
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";

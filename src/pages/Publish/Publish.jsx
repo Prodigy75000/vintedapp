@@ -1,3 +1,7 @@
+// Publish page — form to create a new offer (protected, requires login)
+// Sends product data + optional image as FormData with auth token
+// Redirects to the new offer page on success
+
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";

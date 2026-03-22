@@ -36,5 +36,60 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-   
+}
+
+.offer-info {
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.offer-brand {
+  font-size: 13px;
+  color: #555;
+}
+
+.offer-size {
+  font-size: 13px;
+  color: #8b8b8b;
+}
+
+.offer-price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 2px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 0;
+}
+
+.pagination button {
+  padding: 8px 18px;
+  background-color: #09b1ba;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #088a91;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: #555;
 }
