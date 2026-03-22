@@ -22,7 +22,7 @@ export default function Signup({ setIsConnected }) {
 
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "http://localhost:3000/user/signup",
         {
           username: formData.username,
           email: formData.email,

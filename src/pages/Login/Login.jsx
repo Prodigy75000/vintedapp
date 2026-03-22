@@ -13,14 +13,18 @@ const Login = ({ setIsConnected }) => {
 
   return (
     <main>
-      <div className="container">
-        <h1>Se connecter</h1>
+      <div className="login-container">
+        <h2>Se connecter</h2>
         <form
           onSubmit={async (event) => {
             event.preventDefault();
+             if (!email || !password) {
+    setErrorMessage("Veuillez remplir tous les champs");
+    return;
+  }
             try {
               const response = await axios.post(
-                "https://lereacteur-vinted-api.herokuapp.com/user/login",
+                "http://localhost:3000/user/login",
                 {
                   email: email,
                   password: password,
@@ -60,8 +64,10 @@ const Login = ({ setIsConnected }) => {
 
           <button>Se connecter</button>
         </form>
-        <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
-        {errorMessage && <p className="error">{errorMessage}</p>}
+        {errorMessage && <p className="login-error">{errorMessage}</p>}
+        <p className="login-link">
+          <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+        </p>
       </div>
     </main>
   );

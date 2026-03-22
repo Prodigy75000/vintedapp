@@ -6,16 +6,13 @@ import axios from "axios";
 const Offer = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  // console.log(useParams()); // { id : "69b178197659fbfd4f9ebe26" }
-  // destructuring direct :
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offer/" + id,
+          "http://localhost:3000/offers/" + id,
         );
         console.log(response.data);
         setData(response.data);
@@ -41,8 +38,26 @@ const Offer = () => {
               />
             )}
             <aside>
-              <p>{data.product_price} €</p>
-              <button>Acheter</button>
+              <div className="offer-details"> <p>{data.product_price} €</p>
+              {data.product_details?.map((detail, index) => {
+                const key = Object.keys(detail)[0];
+                return (
+                  <div className="detail-row" key={index}>
+                    <span className="detail-key">{key}</span>
+                    <span className="detail-value">{detail[key]}</span>
+                  </div>
+                );
+              })}
+              <p className="detail-description">{data.product_description} €</p>
+              <div className="avatar-username">
+                {data.owner?.account?.avatar?.secure_url && (
+                  <img className="avatar-img" src={data.owner.account.avatar.secure_url} alt="avatar" />
+                )}
+                <p>{data.owner?.account?.username}</p>
+              </div>
+            
+              <button className="buy-btn">Acheter</button></div>
+             
             </aside>
           </section>
         )}

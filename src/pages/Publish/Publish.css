@@ -1,0 +1,127 @@
+.publish-container {
+  max-width: 780px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.publish-container h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.publish-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* White card sections */
+.publish-card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Row inside a card — label + input side by side */
+.publish-row {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.publish-row:last-child {
+  border-bottom: none;
+}
+
+.publish-row label {
+  min-width: 160px;
+  font-size: 14px;
+  color: #555;
+}
+
+.publish-row input[type="text"],
+.publish-row input[type="number"],
+.publish-row textarea {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  color: #333;
+  background: transparent;
+}
+
+.publish-row textarea {
+  min-height: 60px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.publish-row input::placeholder,
+.publish-row textarea::placeholder {
+  color: #ccc;
+}
+
+/* File upload zone */
+.publish-file-zone {
+  padding: 30px;
+  text-align: center;
+}
+
+.publish-file-zone input[type="file"] {
+  display: none;
+}
+
+.publish-file-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  color: #09b1ba;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.publish-file-btn:hover {
+  background-color: #f0fafa;
+}
+
+.publish-file-zone p {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #09b1ba;
+}
+
+/* Actions */
+.publish-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.publish-actions button {
+  padding: 12px 30px;
+  background-color: #09b1ba;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.publish-actions button:hover {
+  background-color: #088a91;
+}
+
+.publish-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.publish-error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}

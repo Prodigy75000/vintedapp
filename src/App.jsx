@@ -6,6 +6,7 @@ import Offer from "./pages/Offer/Offer";
 import Header from "./components/Header/Header";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import Publish from "./pages/Publish/Publish";
 import Cookies from "js-cookie";
 
 function App() {
@@ -64,6 +65,10 @@ function App() {
               handleToken={handleToken}
             />
           }
+        />
+        <Route
+          path="/publish"
+          element={<Publish isConnected={isConnected} />}
         />
         <Route
           path="*"

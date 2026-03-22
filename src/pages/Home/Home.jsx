@@ -11,7 +11,7 @@ const Home = ({ title }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${title}`,
+          `http://localhost:3000/offers?title=${title}`,
         );
         // console.log(response.data); // {count: 32, offers: Array(32)}
         setData(response.data);
@@ -31,53 +31,9 @@ const Home = ({ title }) => {
         ) : (
           <section>
             {data.offers.map((element) => {
-              // console.log(element);
-              // {
-              //     "_id": "69b178197659fbfd4f9ebe26",
-              //     "product_name": "Vestido",
-              //     "product_description": "Vestido camisero estampado, tegido fluido satinado, talla S.",
-              //     "product_price": 25,
-              //     "product_details": [
-              //         {
-              //             "MARQUE": "STRADIVARIUS"
-              //         },
-              //         {
-              //             "ÉTAT": "NEUF AVEC ÉTIQUETTE"
-              //         },
-              //         {
-              //             "COULEUR": "MULTICOLORE"
-              //         },
-              //         {
-              //             "EMPLACEMENT": " ANDALUCÍA, ESPAÑA"
-              //         }
-              //     ],
-              //     "product_pictures": [
-              //     ],
-              //     "owner": {
-              //         "account": {
-              //             "username": "Eudora51",
-              //             "avatar": {
-              //                 "secure_url": "https://res.cloudinary.com/lereacteur/image/upload/v1773238290/api/vinted-v2/users/69b178117659fbfd4f9ebe0b/avatar.png",
-              //             }
-              //         },
-              //         "_id": "69b178117659fbfd4f9ebe0b"
-              //     },
-              //     "product_image": {
-              //         "secure_url": "https://res.cloudinary.com/lereacteur/image/upload/v1773238297/api/vinted-v2/offers/69b178197659fbfd4f9ebe26/preview.jpg",
-              //     }
-              // }
               return (
                 <Link to={"/offers/" + element._id}>
                   <article key={element._id}>
-                    <div className="owner-profile">
-                      {element.owner?.account?.avatar?.secure_url && (
-                        <img
-                          src={element.owner.account.avatar.secure_url}
-                          alt="portrait de l'ouner"
-                        />
-                      )}
-                      <p>{element.owner?.account?.username}</p>
-                    </div>
                     {element.product_image?.secure_url && (
                       <img
                         src={element.product_image.secure_url}

@@ -1,8 +1,10 @@
 import "./Header.css";
 import logo from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ isConnected, handleToken, title, setTitle }) => {
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className="container">
@@ -36,7 +38,12 @@ const Header = ({ isConnected, handleToken, title, setTitle }) => {
             <Link to="/login">Se connecter</Link>
           </div>
         )}
-        <button className="btn-sell">Vends tes articles</button>
+        <button
+          className="btn-sell"
+          onClick={() => navigate(isConnected ? "/publish" : "/login")}
+        >
+          Vends tes articles
+        </button>
       </div>
     </header>
   );
